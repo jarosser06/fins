@@ -58,18 +58,11 @@ func Init(config string, logLevel string) Fins {
 
 // Displays Outdated Versions of Cookbooks in a Chef server
 func (f *Fins) Outdated() int {
-	var wg sync.WaitGroup
 	var supCookbook supermarket.Cookbook
 
 	for name, ver := range f.ChefServerCookbooks() {
 
-		wg.Add(1)
-
-		go func() {
-			supCookbook = f.LatestSupermarketCookbook(name)
-			wg.Done()
-		}()
-		wg.Wait()
+		supCookbook = f.LatestSupermarketCookbook(name)
 
 		var supVer string
 		if len(supCookbook.Version) == 0 {
