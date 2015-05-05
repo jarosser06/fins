@@ -1,0 +1,15 @@
+{
+	"ImportPath": "github.com/jarosser06/fins",
+	"GoVersion": "go1.4",
+	"Deps": [
+		{
+			"ImportPath": "github.com/marpaia/chef-golang",
+			"Comment": "v0.1.0-20-gdcba4c9",
+			"Rev": "dcba4c98a7f3442830bbbeb4b7c734ab85c8b379"
+		},
+		{
+			"ImportPath": "github.com/op/go-logging",
+			"Rev": "e5fb9bb8a3a168cc269b38f092b65d2e18cebb9a"
+		}
+	]
+}

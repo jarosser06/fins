@@ -1,0 +1,18 @@
+source "https://api.berkshelf.com"
+
+cookbook 'rackspace_iptables', git: 'https://github.com/rackspace-cookbooks/rackspace_iptables.git'
+cookbook 'rackops_rolebook', git: 'https://github.com/rackops/rackops_rolebook.git'
+cookbook 'cron', git: 'https://github.com/rackspace-cookbooks/cron.git'
+cookbook 'pg-multi', git: 'https://github.com/rackspace-cookbooks/pg-multi.git'
+cookbook 'monit', git: 'https://github.com/apsoto/monit.git'
+cookbook 'users'
+cookbook 'yum-epel'
+cookbook 'yum'
+cookbook 'nfs'
+cookbook 'curl'
+cookbook 'rackspace_memcached', git: 'https://github.com/rackspace-cookbooks/rackspace_memcached'
+cookbook 'rackspace_logrotate', git: 'https://github.com/rackspace-cookbooks/rackspace_logrotate'
+cookbook 'application_python', git: 'https://github.com/the-galley/application_python.git'
+cookbook 'git_ssh_wrapper', git: 'https://github.com/tstat/chef-git_ssh_wrapper.git'
+cookbook 'pgpool', git: 'https://github.com/the-galley/chef-pgpool.git'
+cookbook 'rackspacecloud', git: 'https://github.com/rackops/rackspacecloud.git'

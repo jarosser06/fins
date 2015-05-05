@@ -20,14 +20,20 @@ case $1 in
 "test")
   if [ godep_installed ]; then
     GOPATH=`godep path`:${GOPATH}
-    go test
+    pkg_dirs="restclient supermarket pkg/version"
+    for pkg in $pkg_dirs
+    do
+      pushd $pkg &> /dev/null
+      go test
+      popd &> /dev/null
+    done
   fi
   ;;
 "build")
   if [ godep_installed ]; then
     mkdir -p bin
     GOPATH=`godep path`:${GOPATH}
-    go build -o bin/fins ./main.go
+    go build -o bin/fins ./cmd/main.go
   fi
   ;;
 "install")
