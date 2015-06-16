@@ -34,37 +34,15 @@ const (
 // VersionCompare takes a version and compares it to another
 // version.  It returns GreaterThan, LessThan, or EqualTo
 func Compare(ver string, compTo string) VersionComparison {
-	verArray := strings.Split(ver, ".")
-	compToArray := strings.Split(compTo, ".")
-
-	diff := len(verArray) - len(compToArray)
-	switch {
-	case diff > 0:
-		for i := 0; i < diff; i++ {
-			if v, _ := strconv.Atoi(verArray[i]); v > 0 {
-				return GreaterThan
-			}
-		}
-	case diff < 0:
-		for i, x := 0, diff; x < 0; x++ {
-			i++
-			if v, _ := strconv.Atoi(compToArray[i]); v > 0 {
-				return LessThan
-			}
-		}
+	if ver == compTo {
+		return EqualTo
 	}
 
-	for i := 0; i < len(verArray); i++ {
-		c, _ := strconv.Atoi(compToArray[i])
-		v, _ := strconv.Atoi(verArray[i])
-		if v > c {
-			return GreaterThan
-		} else if v < c {
-			return LessThan
-		}
+	if ver > compTo {
+		return GreaterThan
+	} else {
+		return LessThan
 	}
-
-	return EqualTo
 }
 
 func GetConstraintType(verConstraint string) ConstraintType {
