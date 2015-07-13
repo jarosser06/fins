@@ -25,6 +25,9 @@ case $1 in
     do
       pushd $pkg &> /dev/null
       go test
+      if ! [ $? == 0 ]; then
+        exit 1
+      fi
       popd &> /dev/null
     done
   fi
