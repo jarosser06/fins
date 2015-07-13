@@ -6,15 +6,15 @@ import (
 
 func TestGet(t *testing.T) {
 	var s struct {
-		IP string `json:"ip"`
+		UserID int `json:"userId"`
 	}
 
-	err := Get("http://ip.jsontest.com/", &s)
+	err := Get("http://jsonplaceholder.typicode.com/posts/1", &s)
 	if err != nil {
 		t.Errorf("Unexepected error %v", err)
 	}
 
-	if s.IP == "" {
-		t.Errorf("Expected IP to be populated")
+	if s.UserID != 1 {
+		t.Errorf("Expected ID to be 1")
 	}
 }
